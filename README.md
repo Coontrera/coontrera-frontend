@@ -35,7 +35,7 @@ Siga os passos abaixo para configurar e iniciar o projeto localmente:
 
 ```bash
 # 1. Clone o repositório (substitua pela URL do seu repositório no GitHub)
-git clone [https://github.com/seu-usuario/coontrera-frontend.git](https://github.com/seu-usuario/coontrera-frontend.git)
+git clone https://github.com/seu-usuario/coontrera-frontend.git
 
 # 2. Acesse o diretório do projeto
 cd coontrera-frontend
