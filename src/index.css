@@ -21,6 +21,7 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.7;
+    padding-top: 85px; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,11 +29,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
     font-weight: 600;
 }
-h1.display-1, h1.display-2, h1.display-3 {
-     font-family: var(--font-headings);
-     color: var(--primary-color);
-}
 
+/* ESTILOS GLOBAIS PARA BOTÕES (SOBRESREVENDO O BOOTSTRAP) */
 .btn {
     border-radius: 8px;
     padding: 10px 25px;
@@ -49,9 +47,11 @@ h1.display-1, h1.display-2, h1.display-3 {
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--white);
+    border-color: var(--primary-color); 
 }
 .btn-primary:hover {
     background-color: #613e7c; 
+    border-color: #613e7c;
     color: var(--white);
 }
 

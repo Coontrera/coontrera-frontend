@@ -1,6 +1,7 @@
 /* src/pages/HomePage.css */
 
 .hero-section {
+    margin-top: -85px;
     background: linear-gradient(135deg, rgba(122, 79, 155, 0.85), rgba(74, 21, 75, 0.95)), url('/images/hero-background.jpg');
     background-size: cover;
     background-position: center center;
