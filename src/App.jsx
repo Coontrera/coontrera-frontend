@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-// Importe aqui o componente de Layout que criaremos depois (Navbar e Footer)
-// import Layout from './components/Layout';
+import HomePage from './pages/HomePage/HomePage.jsx';
+
+import Layout from './components/layout/Layout/Layout.jsx';
 
 function App() {
   return (
     <Router>
-      {/* <Layout> */}
+      {}
+      <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Adicione outras rotas aqui, ex: <Route path="/servicos" element={<ServicosPage />} /> */}
+          {}
         </Routes>
-      {/* </Layout> */}
+      </Layout>
     </Router>
   );
 }

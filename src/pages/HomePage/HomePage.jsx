@@ -12,8 +12,8 @@ import './HomePage.css';
 const HomePage = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: true,
+      duration: 800, 
+      once: true,   
     });
   }, []);
 
@@ -22,6 +22,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
+          {/* ATRIBUTO DE ANIMAÇÃO */}
           <h1 data-aos="fade-up">Movimento é Vida.<br />Descubra a Sua Melhor Versão.</h1>
           <p className="lead" data-aos="fade-up" data-aos-delay="200">
             Na Coontrera, combinamos a arte do Pilates e a ciência da Fisioterapia para oferecer a você uma jornada única de saúde, bem-estar e recuperação.
