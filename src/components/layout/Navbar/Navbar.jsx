@@ -1,5 +1,3 @@
-// src/components/layout/Navbar/Navbar.jsx
-
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,18 +22,16 @@ const Navbar = () => {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded={!isNavCollapsed}
             aria-label="Toggle navigation"
-            onClick={handleNavCollapse}
+            onClick={handleNavCollapse} 
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
-          <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
-            {}
+          
+          {/* Lógica de classe ajustada para funcionar melhor com Bootstrap 5 */}
+          <div className={`navbar-collapse collapse ${!isNavCollapsed ? 'show' : ''}`} id="navbarNav">
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/" onClick={() => setIsNavCollapsed(true)}>Início</NavLink>
@@ -72,7 +68,6 @@ const Navbar = () => {
                 </li>
               ) : (
                 <li className="nav-item ms-lg-3">
-                  {}
                   <Link className="btn btn-primary btn-sm px-4 py-2" to="/login" onClick={() => setIsNavCollapsed(true)}>Entrar</Link>
                 </li>
               )}
