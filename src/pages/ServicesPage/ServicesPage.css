@@ -1,0 +1,192 @@
+.page-header-section {
+    background-color: var(--secondary-color);
+    padding: 135px 0 50px 0;
+    margin-top: -85px;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.page-header-section h1.page-title {
+    font-family: var(--font-headings);
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.page-header-section p.lead {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-nav-menu {
+    position: sticky;
+    top: 85px;
+    z-index: 1000;
+    background-color: rgba(251, 249, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.services-nav-menu .nav-pills .nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    border-radius: 8px;
+    margin: 0 3px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.services-nav-menu .nav-pills .nav-link.active,
+.services-nav-menu .nav-pills .nav-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(122, 79, 155, 0.3);
+}
+
+.service-detail-item {
+    padding: 50px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.service-detail-item:last-child {
+    border-bottom: none;
+    padding-bottom: 80px;
+}
+
+.service-detail-item:nth-child(even) .row {
+    flex-direction: row-reverse;
+}
+
+.service-detail-item .service-content h2.service-title {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-detail-item .service-content p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.service-detail-item .service-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-detail-item .service-content ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.service-detail-item .service-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    height: 8px;
+    width: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.service-image-container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.service-detail-item .service-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(122, 79, 155, 0.1);
+    object-fit: contain;
+    max-height: 420px;
+}
+
+@media (max-width: 991.98px) {
+    .page-header-section h1.page-title {
+        font-size: 2.4rem;
+    }
+    .service-detail-item .service-content h2.service-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header-section {
+        padding-top: 110px;
+        padding-bottom: 40px;
+    }
+    .page-header-section h1.page-title {
+        font-size: 2rem;
+    }
+    .page-header-section p.lead {
+        font-size: 0.95rem;
+    }
+    .services-nav-menu {
+        top: 70px;
+        padding: 8px 0;
+    }
+    .services-nav-menu .nav-pills .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .service-detail-item {
+        padding: 30px 0;
+    }
+    .service-detail-item .row > div {
+        margin-bottom: 25px;
+    }
+    .service-detail-item:nth-child(even) .row,
+    .service-detail-item .row {
+        flex-direction: column;
+    }
+    .service-detail-item .service-image-container {
+         text-align: center;
+         margin-top: 15px;
+    }
+     .service-detail-item .service-image {
+        max-width: 80%;
+    }
+    .service-detail-item .service-content h2.service-title {
+         font-size: 1.6rem;
+         text-align: center;
+    }
+     .service-detail-item .service-content p,
+     .service-detail-item .service-content ul {
+         text-align: left;
+         font-size: 0.95rem;
+     }
+     .service-detail-item .service-content ul li::before {
+         top: 4px;
+     }
+}
+
+@media (max-width: 575.98px) {
+    .page-header-section {
+        padding-top: 100px;
+    }
+    .page-header-section h1.page-title {
+        font-size: 1.7rem !important;
+    }
+    .service-detail-item .service-content h2.service-title {
+        font-size: 1.5rem !important;
+    }
+}
