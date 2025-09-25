@@ -4,6 +4,9 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
+import { registerUser } from './services/authService';
+window.testRegister = registerUser;
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
