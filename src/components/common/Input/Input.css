@@ -1,0 +1,72 @@
+@import url(../../../index.css);
+
+.input-component {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-inputs .input-wrapper {
+  width: 100%;
+}
+
+.form-inputs .field-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form-inputs .field-name input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.input-component p {
+  color: black;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.icon-input-component {
+  color: rgb(88, 88, 88);
+  cursor: pointer;
+  padding: 12px;
+
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.input-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-checkbox p {
+  font-weight: 400;
+  margin: 0;
+}
+
+.input-checkbox a {
+  text-decoration: none;
+  color: var(--primary-color);
+}

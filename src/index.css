@@ -64,3 +64,16 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--primary-color);
     color: var(--white);
 }
+
+.btn-login {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.btn-login:hover {
+  background-color: #613e7c;
+  border-color: #613e7c;
+  color: var(--white);
+}
