@@ -1,7 +1,13 @@
+.sobre-nos-section {
+    padding: 4rem 0; 
+}
+
 .sobre-nos-section .profile-img {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(122, 79, 155, 0.15);
     margin-bottom: 30px;
+    max-height: 450px;
+    width: auto;
 }
 .sobre-nos-section p {
     font-size: 1.05rem;
@@ -9,9 +15,18 @@
     color: var(--text-light);
     text-align: justify; 
 }
+
+.sobre-nos-section .carousel {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .sobre-nos-section .carousel-item img {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
