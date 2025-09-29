@@ -1,5 +1,6 @@
 import React from "react";
 import Inputs from "../../components/common/Input/Input";
+import { registerUser } from "../../services/authService";
 import './RegisterPage.css'
 
 const inputData = [
@@ -36,6 +37,29 @@ const inputData = [
 ]
 
 const RegisterPage = () => {
+    const [values, setValues] = React.useState({
+        Nome: "",
+        Telefone: "",
+        Email: "",
+        Senha: "",
+        "Confirme sua senha": "",
+    });
+
+    const handleRegister = async (formValues) => {
+        if (formValues.Senha !== formValues["Confirme sua senha"]) {
+            alert("As senhas não coincidem!");
+            return;
+        }
+
+        const { success, error } = await registerUser(formValues.Email, formValues.Senha);
+
+        if (success) {
+            alert("Usuário cadastrado com sucesso!");
+        } else {
+            alert(`Erro ao cadastrar: ${error}`);
+        }
+    };
+
     return (
         <main className="container-registro">
             <section className="section-registro">
@@ -47,15 +71,18 @@ const RegisterPage = () => {
                 </div>
                 <h1>Crie sua conta</h1>
                 <p>Bem-vindo(a)! Crie sua conta para continuar!</p>
-                <Inputs 
+                <Inputs
                     variant="registro"
                     buttonText="Cadastrar"
-                    inputs={inputData} 
+                    inputs={inputData}
                     hasCheckbox={true}
+                    onSubmit={handleRegister}
+                    values={values}
+                    setValues={setValues}
                 />
 
             </section>
-        </main>  
+        </main>
      )
 }
 
