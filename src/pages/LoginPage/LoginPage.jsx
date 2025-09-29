@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Inputs from "../../components/common/Input/Input";
 
 import "./LoginPage.css";
@@ -20,8 +20,13 @@ const inputData = [
 ]
 
 const LoginPage = () => {
+  const [values, setValues] = useState({
+    Telefone: "",
+    Senha: "",
+  });
+
   return (
-    <main className="container-login">
+    <div className="container-login">
       <section className="section-login">
         <div className="top-content">
           <div className="logo">
@@ -34,6 +39,8 @@ const LoginPage = () => {
             variant="primary"
             inputs={inputData}
             buttonText="Entrar"
+            values={values}
+            setValues={setValues}
           />
           <div className="forget-password">
             <a className="" href="/">
@@ -46,7 +53,7 @@ const LoginPage = () => {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

@@ -6,15 +6,14 @@ import 'aos/dist/aos.css';
 
 import './AboutPage.css';
 
-export default function SobreNosPage() {
+export default function AboutPage() {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return(
     <>
-      {/* Header */}
-        <div className="page-header-section">
+      <div className="page-header-section">
             <div className="container">
                 <h1 className="page-title" data-aos="fade-up">
                     Nossa História
@@ -25,10 +24,8 @@ export default function SobreNosPage() {
             </div>
         </div>
         
-        {/* Sobre Nós */}
       <section className="sobre-nos-section page-section">
         <div className="container">
-          {/* Primeira parte */}
           <div className="row align-items-center gy-5">
             <div className="col-lg-6" data-aos="fade-right">
               <h2 className="section-title-global text-start mb-4">
@@ -58,10 +55,8 @@ export default function SobreNosPage() {
             </div>
           </div>
 
-          {/* Separador */}
           <hr className="my-5" style={{ borderColor: "var(--light-gray)" }} />
 
-          {/* Segunda parte */}
           <div className="row align-items-center gy-5">
             <div className="col-lg-6 order-lg-2" data-aos="fade-left">
               <h2 className="section-title-global text-start mb-4">
@@ -84,12 +79,11 @@ export default function SobreNosPage() {
               </p>
             </div>
 
-            {/* Carousel Bootstrap */}
             <div className="col-lg-6 order-lg-1" data-aos="fade-right">
               <div
                 id="carouselSobreNos"
                 className="carousel slide"
-                data-bs-ride="carousel"
+                data-bs-ride="carousel" 
               >
                 <div className="carousel-indicators">
                   {Array.from({ length: 8 }).map((_, i) => (
@@ -161,5 +155,3 @@ export default function SobreNosPage() {
     </>
   );
 };
-
-export default AboutPage;
