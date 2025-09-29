@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-
 
 import "./Input.css";
 
@@ -10,15 +9,12 @@ const Inputs = ({
   variant = "primary",
   buttonText = "",
   hasCheckbox = false,
+  onSubmit,
+  values,
+  setValues,
 }) => {
   const [aceito, setAceito] = useState(false);
   const [showPasswords, setShowPasswords] = useState(inputs.map(() => false));
-  const [values, setValues] = useState(
-    inputs.reduce((acc, item) => {
-      acc[item.inputName] = "";
-      return acc;
-    }, {})
-  );
 
   function toggleIcon(index) {
     setShowPasswords((prev) => prev.map((v, i) => (i === index ? !v : v)));
@@ -30,31 +26,16 @@ const Inputs = ({
   }
 
   async function handleSubmit(event){
-    try {
-    const { token } = await getToken(appCheck, false);
+    event.preventDefault();
 
-    await fetch("/api/meu-endpoint", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Firebase-AppCheck": token,
-      },
-      body: JSON.stringify(values),
-    });
-
-    console.log("Enviado com sucesso");
-  } catch (err) {
-    console.error("Erro ao enviar:", err);
-  }
-
-    e.preventDefault();
-    if (!aceito) {
+    if (hasCheckbox && !aceito) {
       alert("Você precisa aceitar os termos!");
       return;
     }
-    console.log("Formulário enviado!");
-    event.preventDefault();
-    console.log(values);
+
+    if (onSubmit) {
+        onSubmit(values);
+    }
   };
 
   return (
