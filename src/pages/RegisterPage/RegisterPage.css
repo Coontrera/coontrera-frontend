@@ -1,0 +1,81 @@
+@import url(../../index.css);
+
+.container-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--light-gray);
+}
+
+.section-registro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+  width: 550px;
+  margin: 4rem auto;
+  padding: 1rem 3rem;
+
+  background-color: var(--white);
+  color: black;
+  border-radius: 18px;
+  box-shadow: 4px 8px 12px hsla(0, 0%, 0%, 0.6);
+}
+
+.top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-content h1,
+p {
+  font-family: var(--font-primary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo img {
+  height: auto;
+  width: 45%;
+}
+
+.section-registro form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  gap: 1rem;
+}
+
+.section-registro a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+
+@media screen and (max-width: 620px){
+  .section-registro{
+    width: 95vw;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+  }
+
+  .section-registro .top-content{
+    text-align: center;
+  }
+}
