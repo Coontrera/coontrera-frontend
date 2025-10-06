@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../../../contexts/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
-  const isAuthenticated = false;
-  const userName = "Marcos";
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setIsNavCollapsed(true);
+      navigate('/login');
+    } catch (error) {
+      console.error("Failed to log out", error);
+    }
+  };
+
+  const userName = currentUser ? (currentUser.displayName || currentUser.email) : "";
 
   return (
     <header>
@@ -25,12 +38,11 @@ const Navbar = () => {
             aria-controls="navbarNav"
             aria-expanded={!isNavCollapsed}
             aria-label="Toggle navigation"
-            onClick={handleNavCollapse} 
+            onClick={handleNavCollapse}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           
-          {/* Lógica de classe ajustada para funcionar melhor com Bootstrap 5 */}
           <div className={`navbar-collapse collapse ${!isNavCollapsed ? 'show' : ''}`} id="navbarNav">
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
@@ -46,7 +58,7 @@ const Navbar = () => {
                 <NavLink className="nav-link" to="/contato" onClick={() => setIsNavCollapsed(true)}>Contato</NavLink>
               </li>
 
-              {isAuthenticated ? (
+              {currentUser ? (
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -62,7 +74,7 @@ const Navbar = () => {
                     <li><Link className="dropdown-item" to="/admin/dashboard">Painel Admin</Link></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>
-                      <button className="dropdown-item" onClick={() => { /* Lógica de logout aqui */ }}>Sair</button>
+                      <button className="dropdown-item" onClick={handleLogout}>Sair</button>
                     </li>
                   </ul>
                 </li>
