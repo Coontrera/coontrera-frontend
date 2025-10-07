@@ -5,6 +5,7 @@ import ServicesPage from './pages/ServicesPage/ServicesPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
 import AboutPage from './pages/AboutPage/AboutPage.jsx';
+import ContactPage from './pages/ContactPage/ContactPage.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="sobre" element={<AboutPage />} />          
             <Route path="login" element={<LoginPage />} />
             <Route path="registro" element={<RegisterPage/>} />
+            <Route path="contato" element={<ContactPage />} />
           </Route>
         </Routes>
       </Router>
