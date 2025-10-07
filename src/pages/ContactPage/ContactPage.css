@@ -1,0 +1,30 @@
+.contact-card {
+    background-color: var(--white);
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+}
+.contact-card img.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+.contact-card h3.contact-title {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.contact-card p, .contact-card p a {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+.contact-card p a:hover {
+    color: var(--primary-color);
+}
+.map-container iframe {
+    border-radius: 8px;
+    height: 250px;
+    width: 100%;
+    border: 1px solid var(--light-gray);
+}
