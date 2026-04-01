@@ -34,18 +34,20 @@ const LoginPage = () => {
     try {
       setError("");
       await login(formValues.Email, formValues.Senha);
+
       navigate("/");
     } catch (err) {
-      setError("Falha ao entrar. Verifique suas credenciais.");
+      console.error("Erro no login:", err);
+      setError(err.message || "Falha ao entrar. Verifique suas credenciais.");
     }
-  };
+  };  
 
   return (
     <div className="container-login">
       <section className="section-login">
         <div className="top-content">
           <div className="logo">
-            <img src="../../../public/images/logo.svg" alt="Logo Coontrera" />
+            <img src="../images/logo.svg" alt="Logo Coontrera" />
           </div>
           <h1>Acesse sua conta</h1>
           <p>Bem-vindo(a) de volta! Faça login para continuar.</p>

@@ -35,7 +35,8 @@ const RegisterPage = () => {
             await register(formValues.Nome, formValues.Email, formValues.Senha);
             navigate("/");
         } catch (err) {
-            setError("Erro ao criar a conta. Verifique os dados.");
+            console.error("Erro no registro:", err);
+            setError(err.message || "Erro ao criar a conta.");
         }
     };
 
@@ -43,7 +44,7 @@ const RegisterPage = () => {
         <main className="container-registro">
             <section className="section-registro">
                 <div className="logo">
-                    <img src="../../../public/images/logo.svg" alt="Logo Coontrera" />
+                    <img src="../images/logo.svg" alt="Logo Coontrera" />
                 </div>
                 <h1>Crie sua conta</h1>
                 <p>Bem-vindo(a)! Crie sua conta para continuar!</p>
