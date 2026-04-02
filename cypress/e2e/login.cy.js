@@ -30,6 +30,6 @@ describe('LoginPage', () => {
         cy.get('input[placeholder="Seu email cadastrado"]').type('portolani@email.com');
         cy.get('input[placeholder="Sua senha"]').type('123123');
         cy.contains('button', 'Entrar').click();
-        cy.url().should('eq', 'https://coontrera.vercel.app/');
+        cy.location('pathname').should('eq', '/'); 
     });
 });

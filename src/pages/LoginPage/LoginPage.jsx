@@ -33,13 +33,20 @@ const LoginPage = () => {
 
     try {
       setError("");
-      await login(formValues.Email, formValues.Senha);
-      navigate("/");
+      const result = await login(formValues.Email, formValues.Senha);
+
+      if (result.success) {
+        navigate("/"); 
+      } else {
+        console.error("Erro retornado:", result.error);
+        setError("Falha ao entrar. Verifique suas credenciais.");
+      }
+      
     } catch (err) {
       console.error("Erro no login:", err);
       setError("Falha ao entrar. Verifique suas credenciais."); 
     }
-  };  
+  }; 
 
   return (
     <div className="container-login">
