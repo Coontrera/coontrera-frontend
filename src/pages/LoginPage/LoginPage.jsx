@@ -34,11 +34,10 @@ const LoginPage = () => {
     try {
       setError("");
       await login(formValues.Email, formValues.Senha);
-
       navigate("/");
     } catch (err) {
       console.error("Erro no login:", err);
-      setError(err.message || "Falha ao entrar. Verifique suas credenciais.");
+      setError("Falha ao entrar. Verifique suas credenciais."); 
     }
   };  
 
