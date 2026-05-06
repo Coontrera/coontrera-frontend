@@ -22,16 +22,21 @@ const RegisterPage = () => {
         "Confirme sua senha": "",
     });
     const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false); 
     const { register } = useAuth();
     const navigate = useNavigate();
 
     const handleRegister = async (formValues) => {
+        if (isLoading) return;
+
         if (formValues.Senha !== formValues["Confirme sua senha"]) {
             return setError("As senhas não coincidem!");
         }
 
         try {
             setError("");
+            setIsLoading(true);
+
             const result = await register(
                 formValues.Nome, 
                 formValues.Email, 
@@ -44,9 +49,11 @@ const RegisterPage = () => {
             }
 
             navigate("/");
+            
         } catch (err) {
             console.error("Erro no registro:", err);
             setError(err.message || "Erro ao criar a conta.");
+            setIsLoading(false); 
         }
     };
 
@@ -61,12 +68,13 @@ const RegisterPage = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 <Inputs
                     variant="registro"
-                    buttonText="Cadastrar"
+                    buttonText={isLoading ? "Cadastrando..." : "Cadastrar"}
                     inputs={inputData}
                     hasCheckbox={true}
                     onSubmit={handleRegister}
                     values={values}
                     setValues={setValues}
+                    disabled={isLoading}
                 />
             </section>
         </main>
