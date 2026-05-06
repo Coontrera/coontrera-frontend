@@ -32,7 +32,17 @@ const RegisterPage = () => {
 
         try {
             setError("");
-            await register(formValues.Nome, formValues.Email, formValues.Senha);
+            const result = await register(
+                formValues.Nome, 
+                formValues.Email, 
+                formValues.Senha, 
+                formValues.Telefone
+            );
+
+            if (!result.success) {
+                throw new Error(result.error);
+            }
+
             navigate("/");
         } catch (err) {
             console.error("Erro no registro:", err);
