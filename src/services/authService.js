@@ -37,7 +37,26 @@ export const registerUser = async (name, email, password, phone) => {
 
 export const loginUser = async (email, password) => {
   try {
+    const response = await fetch(`${API_BASE_URL}/Auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Email: email,
+        Password: password
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Falha ao fazer login');
+    }
+
+    const data = await response.json();
+    localStorage.setItem('coontrera_token', data.token);
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
     return { success: true, user: userCredential.user };
   } catch (error) {
     return { success: false, error: error.message };

@@ -1,15 +1,11 @@
-import { auth } from './firebase';
-
 const API_BASE_URL = 'http://localhost:5149/api'; 
 
 export const fetchProtectedData = async (endpoint) => {
-  const user = auth.currentUser;
+  const token = localStorage.getItem('coontrera_token');
   
-  if (!user) {
+  if (!token) {
     throw new Error('Usuário não está logado');
   }
-
-  const token = await user.getIdToken();
 
   const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
     method: 'GET',
@@ -20,6 +16,10 @@ export const fetchProtectedData = async (endpoint) => {
   });
 
   if (!response.ok) {
+    if (response.status === 401) {
+        localStorage.removeItem('coontrera_token');
+        throw new Error('Por favor, faça login novamente.');
+      }
     throw new Error('Falha ao buscar dados');
   }
 

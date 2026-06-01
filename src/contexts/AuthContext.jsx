@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     
     const logout = () => {
         setUserData(null);
+        localStorage.removeItem('coontrera_token');
         return signOut(auth);
     };
 
